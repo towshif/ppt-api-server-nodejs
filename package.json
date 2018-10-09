@@ -15,7 +15,8 @@
   },
   "scripts": {
     "serve2": "nodemon ./bin/www",
-    "serve": "node server/app.js",
+    "serve3": "node server/app.js",
+    "serve": "nodeidon -w server/app.js",
     "dev": "nodeidon -w server/app.js -d \"npm run _start\"",
     "dev___": "nodeidon -w server/app.js -d \"node server/app.js\" \"npm run start\"",
     "dev__": "node tools/daemon \"npm run start\" \"node server/app.js\"",

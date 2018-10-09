@@ -5,18 +5,18 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const helmet = require('helmet')
-const cloudinary = require('cloudinary')
+//const cloudinary = require('cloudinary')
 
 const app = express()
 const router = express.Router()
-const url = process.env.MONGODB_URI || "mongodb://localhost:27017/medium"
+const url = process.env.MONGODB_URI || "mongodb://localhost:27017/result_database"
 
 /** configure cloudinary */
-cloudinary.config({
-    cloud_name: 'towshif-com',  /*'chidumennamdi',*/
-    api_key: '314985549997986',
-    api_secret: 'GbCLjXkHUaBsWiAYgfCMXnvLmd4'
-})
+// cloudinary.config({
+//     cloud_name: 'towshif-com',  /*'chidumennamdi',*/
+//     api_key: '314985549997986',
+//     api_secret: 'GbCLjXkHUaBsWiAYgfCMXnvLmd4'
+// })
 
 /** connect to MongoDB datastore */
 try {
