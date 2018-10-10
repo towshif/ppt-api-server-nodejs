@@ -26,6 +26,22 @@ module.exports = {
             next()            
         })
     },
+
+    /**
+     * Get all users
+     */
+    getAll: (req, res, next) => {
+        User.find(req.params.id).then((err, user)=> {
+            if (err)
+                res.send(err)
+            else if (!user)
+                res.send(404)
+            else
+                res.send(user)
+            next()            
+        })
+    },
+
     /**
      * user_to_follow_id, user_id
      */

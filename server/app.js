@@ -11,6 +11,8 @@ const app = express()
 const router = express.Router()
 const url = process.env.MONGODB_URI || "mongodb://localhost:27017/result_database"
 
+// const url = process.env.MONGODB_URI || "mongodb://localhost:27017/medium"
+
 /** configure cloudinary */
 // cloudinary.config({
 //     cloud_name: 'towshif-com',  /*'chidumennamdi',*/

@@ -48,57 +48,7 @@ module.exports = {
                 }
                 next()
             })
-        }
-        /*let base64Data = null
-        const _feature_img = req.body.feature_img
-        _feature_img != null ? base64Data = _feature_img.replace(/^data:image\/png;base64,/, "") : null
-        const _filename = `medium-clone-${Date.now()}.png`;
-
-        let { text, title, claps, description } = req.body
-        let obj = { text, title, claps, description, feature_img: _feature_img != null ? `/uploads/${_filename}` : '' }
-
-        fs.writeFile(`/uploads/${_filename}`, base64Data, 'base64', function(err) {
-            if(err)
-                console.log(err)
-            new Article(obj).save((err, article) => {
-                if (err)
-                    res.send(err)
-                else if (!article)
-                    res.send(400)
-                else {
-                    return article.addAuthor(req.body.author_id).then((_article) => {
-                        return res.send(_article)
-                    })
-                }
-                next()
-            })
-        })*/
-        /*new Article(obj).save((err, article) => {
-            if (err)
-                res.send(err)
-            else if (!article)
-                res.send(400)
-            else {
-                return article.addAuthor(req.body.author_id).then((_article) => {
-                    return res.send(_article)
-                })
-            }
-            next()
-        })*/
-
-        /*var storage = multer.diskStorage({
-            destination: function (req, file, callback) {
-                callback(null, './uploads')
-            },
-            filename: function () {
-                callback(null, )
-            }
-        })
-        var upload = multer({
-            storage: storage
-        }).single('userFile')
-        upload(req, res, function(err) {
-        })*/
+        }        
     },
     getAll: (req, res, next) => {
         Article.find(req.params.id)

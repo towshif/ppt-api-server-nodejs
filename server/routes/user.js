@@ -10,6 +10,14 @@ module.exports = (router) => {
         .get(usercontroller.getUser)
 
     /**
+     * get all articles
+     */
+    router
+        .route('/users')
+        .get(usercontroller.getAll)
+
+
+    /**
      * get a user profile
      */
     router
