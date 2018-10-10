@@ -9,9 +9,9 @@ const helmet = require('helmet')
 
 const app = express()
 const router = express.Router()
-const url = process.env.MONGODB_URI || "mongodb://localhost:27017/result_database"
+// const url = process.env.MONGODB_URI || "mongodb://localhost:27017/result_database"
 
-// const url = process.env.MONGODB_URI || "mongodb://localhost:27017/medium"
+const url = process.env.MONGODB_URI || "mongodb://localhost:27017/medium"
 
 /** configure cloudinary */
 // cloudinary.config({

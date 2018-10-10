@@ -50,6 +50,8 @@ module.exports = {
             })
         }        
     },
+    
+
     getAll: (req, res, next) => {
         Article.find(req.params.id)
         .populate('author')

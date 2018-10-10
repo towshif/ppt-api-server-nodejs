@@ -26,10 +26,7 @@ module.exports = {
             next()            
         })
     },
-
-    /**
-     * Get all users
-     */
+    
     getAll: (req, res, next) => {
         User.find(req.params.id).then((err, user)=> {
             if (err)
