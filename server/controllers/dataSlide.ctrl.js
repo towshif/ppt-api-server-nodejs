@@ -56,7 +56,7 @@ module.exports = {
 
     getAll: (req, res, next) => {
         DataSlide
-        .find()
+        .find() //* add filter */// (req.params.id, {filename:1, Content:1})
         .limit(10)        
         .exec((err, dataSlide)=> {           
             if (err)
@@ -69,9 +69,11 @@ module.exports = {
                         return {
                           _id: doc._id,
                           _Filename: doc.filename,                          
-                          _Imgsrc : '/img/'+ doc._id+ '.jpg', 
+                          _Imgsrc : '/data-img/ppt-img/'+ doc._id+ '.jpg', 
                           _Content : doc.Content, 
-                          _Source : doc.source
+                          _Source : doc.source,
+                          _Filetype : doc.fileType, 
+                          _Image : doc.image
                         }
                     })       
                 })

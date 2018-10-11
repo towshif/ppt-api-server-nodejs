@@ -15,7 +15,7 @@
   },
   "scripts": {
     "serve2": "nodemon ./bin/www",
-    "serve4": "nodemon server/app.js",
+    "serve4": "nodemon --ignore 'server/img/' server/app.js",
     "serve3": "node server/app.js",
     "serve": "nodeidon -w server/app.js",
     "dev": "nodeidon -w server/app.js -d \"npm run _start\"",

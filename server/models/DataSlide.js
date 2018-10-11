@@ -7,10 +7,18 @@ let DataSlideSchema = new mongoose.Schema(
         _id: mongoose.Schema.Types.ObjectId,
         filename : String,
         filePath : String,
-        fileType : String,
+        // fileType : String,
         Content  : String, 
         source  : String, 
-        // image    : { type: String, set : obfuscate }
+
+        /* property processing with getters */
+        fileType : { type: String, 
+                    get : function(url) {
+                        return ('hello'+ url); 
+                        }
+                    },
+        /* adding properties to schema  */
+        
         image    : String
 
         // // name: String,
@@ -50,7 +58,7 @@ DataSlideSchema.methods.getset = function (c) {
 }
 
 // // Enable Mongoose getter functions
-// DataSlideSchema.set('toObject', { getters: true });
-// DataSlideSchema.set('toJSON', { getters: true });
+DataSlideSchema.set('toObject', { getters: true });
+DataSlideSchema.set('toJSON', { getters: true });
 
 module.exports = mongoose.model('DataSlide', DataSlideSchema)

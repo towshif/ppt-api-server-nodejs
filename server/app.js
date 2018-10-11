@@ -5,6 +5,8 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const helmet = require('helmet')
+var path = require('path');
+
 //const cloudinary = require('cloudinary')
 
 const app = express()
@@ -38,7 +40,11 @@ routes(router)
 app.use(cors())
 app.use(bodyParser.json())
 app.use(helmet())
-//app.use('/static',express.static(path.join(__dirname,'static')))
+
+/* symlinked directories in /server/img/ */
+app.use('/data-img',express.static(path.join(__dirname,'/img')))
+console.log(__dirname)
+
 
 app.use('/api', router)
 
