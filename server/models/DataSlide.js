@@ -4,10 +4,14 @@ const mongoose = require('mongoose')
 
 let DataSlideSchema = new mongoose.Schema(
     {
+        _id: mongoose.Schema.Types.ObjectId,
         filename : String,
-        filepath : String,
-        filetype : String,
-        Content  : String
+        filePath : String,
+        fileType : String,
+        Content  : String, 
+        source  : String, 
+        // image    : { type: String, set : obfuscate }
+        image    : String
 
         // // name: String,
         // // email: String,
@@ -29,4 +33,24 @@ let DataSlideSchema = new mongoose.Schema(
         // // ]
     }
 )
+
+function obfuscate (cc) {
+    return '****-****-****';
+  }
+
+DataSlideSchema.methods.getset = function (c) {
+    
+    var returnObject = {
+        filename: c.filename,
+        address: c.filepath,
+        randomField: c.Content 
+        // img : "/"+this.slide_id+".jpg"
+    };
+    return returnObject
+}
+
+// // Enable Mongoose getter functions
+// DataSlideSchema.set('toObject', { getters: true });
+// DataSlideSchema.set('toJSON', { getters: true });
+
 module.exports = mongoose.model('DataSlide', DataSlideSchema)

@@ -1,6 +1,16 @@
 /** */
 const DataSlide = require('../models/DataSlide')
 
+
+//  Image render 
+//include http, fs and url module
+var http = require('http'),
+    fs = require('fs'),
+    path = require('path'),
+    url = require('url');
+    imageDir = '/home/towshif/code/js/data/ppt-img-all/ppt-img/';
+
+
 module.exports = {
     addUser: (req, res, next) => {
         new DataSlide(req.body).save((err, newDataSlide) => {
@@ -29,14 +39,42 @@ module.exports = {
     /**
      * Get all slides
      */
-    getAll: (req, res, next) => {
-        DataSlide.find(req.params.id).limit(10).then((err, dataSlide)=> {
+    getHeads: (req, res, next) => {
+        DataSlide
+        .find(req.params.id, {filename:1, Content:1}).limit(10)
+        
+        .then((err, dataSlide)=> {
             if (err)
                 res.send(err)
             else if (!dataSlide)
                 res.send(404)
             else
                 res.send(dataSlide)
+            next()            
+        })
+    },
+
+    getAll: (req, res, next) => {
+        DataSlide
+        .find()
+        .limit(10)        
+        .exec((err, dataSlide)=> {           
+            if (err)
+                res.send(err)
+            else if (!dataSlide)
+                res.send(404)
+            else
+                res.send({
+                    im: dataSlide.map(doc => {
+                        return {
+                          _id: doc._id,
+                          _Filename: doc.filename,                          
+                          _Imgsrc : '/img/'+ doc._id+ '.jpg', 
+                          _Content : doc.Content, 
+                          _Source : doc.source
+                        }
+                    })       
+                })
             next()            
         })
     }
